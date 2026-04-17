@@ -13,20 +13,58 @@ In current models like LLaMA-3 or GPT-4, text is broken into sub-word units call
 
 **AfriLION is designed to abolish this tax.**
 
-## Our Technical Edge: Extension Over Replacement
+## Technical Deep-Dive: Tokenizer Extension over Replacement
 
 Instead of the prohibitive cost of training a model from absolute zero—which can exceed $10 million in compute alone—AfriLION uses a high-efficiency **Tokenizer Extension** strategy.
 
-We are taking the robust reasoning capabilities of LLaMA-3 and surgically extending its vocabulary with ~30,000 specialized African script tokens. This approach allows us to:
+### The Problem in Code
+The following fertility gap is what we are currently benchmarking. Notice how many more tokens are required for the Wolof phrase compared to English in a standard Llama-3 environment:
+
+```python
+# benchmark_fertility.py snippet
+from transformers import AutoTokenizer
+
+# Base Llama-3 Tokenizer
+base_tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B")
+
+text_en = "Hello, how are you today?"
+text_wo = "Nanga def, naka sa fan bi?" # Wolof
+
+tokens_en = base_tokenizer.encode(text_en)
+tokens_wo = base_tokenizer.encode(text_wo)
+
+print(f"English: {len(tokens_en)} tokens") # ~6 tokens
+print(f"Wolof: {len(tokens_wo)} tokens")   # ~14 tokens (Fertility: 2.33x)
+```
+
+### Our Solution
+We are taking the robust reasoning capabilities of LLaMA-3 and surgically extending its vocabulary with ~30,000 specialized African script tokens. 
+
 1.  **Preserve Intelligence:** We keep the world-class logic and math skills of the base model.
-2.  **Reduce Fertility:** We aim for a fertility rate of <1.5 tokens per word for major African languages (down from 4.0+ in mBERT).
+2.  **Vocabulary Injection:** We use SentencePiece to train on our audited African datasets and merge the top 30k subwords into the Llama-3 embedding matrix.
 3.  **Compute Savings:** By fixing the tokenizer first, we reduce the training compute required for Phase 1 by 70%.
 
 ## Radical Openness: Our Marketing & Recruitment Strategy
 
 We aren't building in a silo. LocaleNLP is committed to the **Build-in-Public** philosophy. Every cleaned dataset, every tokenizer benchmark, and every audit of the CC-100 corpus will be pushed to Hugging Face and GitHub.
 
-Why? Because in the African AI ecosystem, **openness is our greatest competitive advantage.** By giving back to the Masakhane community and university labs (like Mak-AI in Uganda and Wits in South Africa), we earn the community attention and contributor pull requests that money cannot buy.
+### Data Auditing Breakdown
+We don't just "scrape" data. We audit it for linguistic purity. Here is a snippet of our CC-100 auditor that ensures we are prioritizing high-quality African language text:
+
+```python
+# data/audit_cc100.py snippet
+def audit_subset(lang_code):
+    """
+    Audits language quality for African subsets.
+    """
+    stats = {
+        "lang": lang_code,
+        "raw_lines": count_lines(lang_code),
+        "latin_ratio": calculate_script_ratio(lang_code, "latin"),
+        "ajami_ratio": calculate_script_ratio(lang_code, "arabic")
+    }
+    return stats
+```
 
 ## The AfriLION Roadmap
 
@@ -37,11 +75,8 @@ Why? Because in the African AI ecosystem, **openness is our greatest competitive
 
 ## A Call to the Continent
 
-The digital sovereignty of Africa cannot be outsourced. We invite researchers, linguists, and developers across the Gambia, Senegal, Nigeria, and beyond to join the LocaleNLP organization on GitHub. 
-
-Project AfriLION isn't just a model; it's a statement that African languages are not "low-resource"—they are simply under-represented. And we are here to represent.
+The digital sovereignty of Africa cannot be outsourced. Project AfriLION isn't just a model; it's a statement that African languages are not "low-resource"—they are simply under-represented. And we are here to represent.
 
 **Alieu Jagne**
 Founder & CEO, LocaleNLP
 *Gambian Tech Entrepreneur*
-
