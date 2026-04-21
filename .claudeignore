@@ -1,0 +1,14 @@
+# Claude Code CLI Ignore File
+.env
+.env.*
+auth.json
+key.json
+secrets.json
+.claudecode/
+claudecode.json
+claudecode.log
+data/raw/
+data/processed/
+checkpoints/
+tokenizer/*.model
+tokenizer/*.vocab
