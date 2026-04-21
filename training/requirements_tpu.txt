@@ -1,0 +1,43 @@
+# AfriLION TPU Requirements
+# Optimized for JAX/Flax on Google Cloud TPU
+
+# JAX (TPU-specific installation handled in tpu_setup.sh)
+# jax[tpu] -f https://storage.googleapis.com/jax-releases/libtpu_releases.html
+feat(training): add TPU-specific requirements for JAX/Flax pipeline# Core ML Frameworks
+flax==0.8.2
+optax==0.2.2
+chex==0.1.85
+
+# Hugging Face ecosystem
+transformers==4.40.0Adds training/requirements_tpu.txt with pin-locked dependencies for
+Cloud TPU training.
+
+Includes:
+- Flax/Optax/Chex for JAX-based modeling
+- Transformers/Datasets/Tokenizers (pinned to stable versions)
+- Sentencepiece for tokenizer compatibility
+- WandB for experiment tracking
+- GCS client libraries for remote checkpointing and data streaming
+
+Optimized for Cloud TPU Ubuntu 22.04 base runtime.
+datasets==2.19.0
+tokenizers==0.19.1
+accelerate==0.29.0
+evaluate==0.4.1
+
+# Tokenization
+sentencepiece==0.2.0
+
+# Logging & Monitoring
+wandb
+tqdm
+
+# Data processing
+numpy
+scipy
+pandas
+
+# Cloud storage (for GCS checkpoints)
+google-cloud-storage
+fsspec
+gcsfs
