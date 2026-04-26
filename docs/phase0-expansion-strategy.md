@@ -36,4 +36,60 @@ Hugging Face (HF) is our primary marketing channel.
 *Reference: Claude Strategy Session - April 2026*
 
 
+---
+
+## 6. Community Building: The MasakhaNLP Network Effect
+
+The Masakhane community is the single most important external asset for AfriLION.
+
+- **Why**: Pre-existing trust, quality benchmarks (MasakhaNER, MasakhaPOS, MasakhaNEWS), and 300+ African NLP contributors
+- **Strategy**: Fork key repositories, contribute improvements, co-author evaluations
+- **Key Repos to Fork**:
+  - `masakhane-io/masakhane-mt` (Machine Translation)
+  - `masakhane-io/masakhane-ner` (Named Entity Recognition)
+  - `masakhane-io/masakhane-news` (News classification)
+- **Contribution Plan**:
+  - Add Wolof to existing benchmarks (high-impact, low-competition)
+  - Submit pull requests with quality data for Tifinagh script languages
+  - Attend monthly MasakhaNLP virtual meetups
+
+---
+
+## 7. Technical Risk Mitigation
+
+### Risk 1: TPU Application Rejected
+- **Mitigation A**: Apply simultaneously to Lambda Labs ($1.10/hr A100 GPU)
+- **Mitigation B**: Use Google Colab TPU (free v2-8, limited to 3hr sessions)
+- **Mitigation C**: Downscale to BERT-base (110M params) on CPU for proof-of-concept
+- **Fallback**: Train tokenizer only (no GPU needed), upload to HF Hub as deliverable
+
+### Risk 2: CC-100 Data Quality Too Low
+- **Mitigation**: Switch to OPUS corpus for Swahili (higher quality, 2.3GB clean)
+- **Fallback**: Use FLORES-200 evaluation set as training seed (1,000 sentences/language)
+- **Long-term**: Coordinator-sourced data (Wolof Pattern) is the permanent solution
+
+### Risk 3: Coordinator Recruitment Stalls
+- **Mitigation**: Partner with university labs (Makerere, Wits) for student coordinators
+- **Incentive Structure**: Academic credit + co-authorship on dataset paper
+- **Minimum Viable**: 3 coordinators (Wolof, Swahili, Hausa) to launch Phase 1
+
+---
+
+## 8. Phase 1 Readiness Checklist
+
+Phase 0 is complete when ALL of the following are true:
+
+- [ ] TPU access confirmed (or viable compute alternative secured)
+- [ ] Tokenizer trained: fertility < 2.0 on Swahili, Wolof, Hausa, Yoruba, Amharic
+- [ ] Clean corpus: minimum 10GB across 5 languages
+- [ ] At least 2 coordinators active and submitting sentences
+- [ ] AfriBERTa smoke test passing (`eval/afriberta_smoke_test.py`)
+- [ ] HF organization `LocaleNLP` created with at least 1 dataset published
+- [ ] University partnership: at least 1 signed MOU or data-sharing agreement
+
+---
+
+*Reference: Claude Strategy Session - April 2026*
+*Last updated: April 22, 2026*
+
 <!-- trigger ci run -->
