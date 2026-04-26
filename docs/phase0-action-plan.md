@@ -14,7 +14,7 @@ Phase 0 focuses on establishing the foundational infrastructure required for Afr
 
 1. **Secure compute resources** (TPU Research Cloud) - _In Progress_
 2. **Build production tokenizer** (LLaMA-3 extended + custom) - _In Progress_
-3. **Launch data pipeline** (CC-100 African languages) - _Pending_
+3. **Launch data pipeline** (CC-100 African languages) - _In Progress_
 4. **Establish research partnerships** (African university labs) - _Outreach Sent_
 5. **Validate technical approach** (before committing to full training) - _Ongoing_
 
@@ -204,7 +204,9 @@ afrilion/
 │   ├── requirements_tpu.txt
 │   └── requirements_sft.txt
 └── data/
-    └── (CC-100 pipeline scripts - Week 2)
+       ├── README.md
+    ├── pipeline.py
+    └── audit_cc100.py
 ```
 
 ---
