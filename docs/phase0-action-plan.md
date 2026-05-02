@@ -4,7 +4,7 @@
 **Timeline**: Days 1-30 (Weeks 1-4)
 **Location**: Casablanca, Morocco
 **Date Started**: April 17, 2026
-**Last Updated**: April 22, 2026
+**Last Updated**: May 2, 2026  
 
 ---
 
@@ -139,19 +139,21 @@ See `docs/outreach-university-labs.md` for full email templates.
 - [x] Draft university outreach emails
 - [x] Add recruitment channels doc
 - [ ] Submit TPU Research Cloud application at `sites.research.google/trc`
-- [ ] Fork Masakhane repositories (masakhane-io/masakhane-mt, masakhane-io/masakhane-ner)
+- [x] Fork Masakhane repositories (masakhane-io/masakhane-mt, masakhane-io/masakhane-ner)
 
+- [x] Create W&B project (`localenlp/afrilion-sft`) for SFT experiment tracking
+- [x] Create HF Space (`LocaleNLP/afrilion-demo`) — Gradio chatbot demo (building)
 ### Week 2 (April 24-30, 2026)
 - [ ] Run mBERT fertility benchmark on CC-100 Swahili + Wolof samples
 - [ ] Download and audit CC-100 subsets (Swahili, Hausa, Yoruba, Amharic)
 - [ ] Train initial SentencePiece tokenizer on CC-100 samples
-- [ ] Set up Hugging Face organization (LocaleNLP)
+- [x] Set up Hugging Face organization (LocaleNLP)
 - [ ] Push tokenizer artifacts to HF Hub
 
 ### Week 3 (May 1-7, 2026)
 - [ ] Receive TPU TRC decision (or follow up)
 - [ ] Run AfriBERTa smoke test (`eval/afriberta_smoke_test.py`)
-- [ ] Begin SFT fine-tuning pipeline (`training/requirements_sft.txt`)
+- [x] Begin SFT fine-tuning pipeline (`training/requirements_sft.txt`)
 - [ ] Confirm at least 1 university partnership
 
 ### Week 4 (May 8-14, 2026)
